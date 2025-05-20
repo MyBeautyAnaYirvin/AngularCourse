@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+//decorador @Component que transforma la clase en un componente
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet],//el routerOutlet es la forma en la que muestra las rutas
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+
 })
-export class AppComponent {
-  title = 'bases';
+export class AppComponent {// en angular los componentes, servicios etc.. no son mas que simples clases
+  title = 'Irving Santos';
 }
