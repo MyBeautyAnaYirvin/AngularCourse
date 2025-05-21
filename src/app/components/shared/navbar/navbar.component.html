@@ -1,0 +1,28 @@
+<style>
+  nav {
+    display: flex;
+    justify-content: space-around; /* espacio entre los elementos */
+    background-color: #333;
+    padding: 10px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  nav a.active{
+    color:red;
+  }
+
+</style>
+
+<nav>
+  <a routerLink="/" routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact: true }"> <!-- el routerLinkActiveOptions es para que no se active el link de inicio cuando se navega a otras rutas -->
+  Contador</a> <!-- los ancortags deben conocer la directiva routerLink -->
+  <a [routerLink]="['/hero']" [routerLinkActive]="'active'">Hero</a>  <!-- los corchetes sirven para las signals computarizadas -->
+
+  <a [routerLink]="['/dragonball']" [routerLinkActive]="'active'">Dragon Ball</a>
+
+</nav>
