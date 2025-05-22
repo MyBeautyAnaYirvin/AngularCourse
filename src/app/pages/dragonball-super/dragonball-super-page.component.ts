@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 interface Character {
   id: number;
@@ -6,17 +6,17 @@ interface Character {
   power: number;
 }
 @Component({
-  templateUrl: './dragonball-page.component.html',
+  templateUrl: './dragonball-super-page.component.html',
 })
 
-export class DragonballPageComponent  {
+export class DragonballSuperPageComponent  {
 
 name = signal('');
 power = signal(0);
 //con esta interface le digo a angular que esta es una singla que maneja un array de personajes con un señar generico
   characters= signal<Character[]>([
     { id: 1, name: 'Goku', power: 9000 },
-
+    { id: 2, name: 'Vegeta', power: 8500 },
   ]);
   addCharacter() {
     if(!this.name() || !this.power() || this.power() < 0){

@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { CounterPageComponent } from './pages/counter/counter-page.component';// importamos el componente que queremos mostrar
 import { HeroPageComponent } from './pages/hero/hero-page.component';// importamos el componente que queremos mostrar
 import { DragonballPageComponent } from './pages/dragonball/dragonball-page.component';
+import { DragonballSuperPageComponent } from './pages/dragonball-super/dragonball-super-page.component';// importamos el componente que queremos mostrar
 
 export const routes: Routes = [//SIEMPRE LAS RUTAS VAN EN ORDEN, YA QUE ANGULAR LAS MANEJA EN ORDEN
 
@@ -16,6 +17,10 @@ export const routes: Routes = [//SIEMPRE LAS RUTAS VAN EN ORDEN, YA QUE ANGULAR 
     {
     path: 'dragonball',
     component: DragonballPageComponent,
+  },
+      {
+    path: 'dragonball-super',
+    component: DragonballSuperPageComponent,
   },
   {
     path: '**',// la ruta por defecto
