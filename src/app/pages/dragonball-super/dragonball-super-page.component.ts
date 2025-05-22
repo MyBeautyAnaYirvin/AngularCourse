@@ -1,5 +1,7 @@
-import { Component, signal } from '@angular/core';
-
+import { DragonballService } from './../../services/dragonball.service';
+import { CharacterListComponent } from './../../components/dragonball/character-list/character-list.component';
+import { Component, inject, signal } from '@angular/core';
+import { CharacterAddComponent } from '../../components/dragonball/character-add/character-add.component';
 interface Character {
   id: number;
   name: string;
@@ -7,39 +9,25 @@ interface Character {
 }
 @Component({
   templateUrl: './dragonball-super-page.component.html',
+  imports: [CharacterListComponent, CharacterAddComponent],
 })
 
-export class DragonballSuperPageComponent  {
+export class DragonballSuperPageComponent  {//importar la instancia de la clase del servicio
 
-name = signal('');
-power = signal(0);
-//con esta interface le digo a angular que esta es una singla que maneja un array de personajes con un señar generico
-  characters= signal<Character[]>([
-    { id: 1, name: 'Goku', power: 9000 },
-    { id: 2, name: 'Vegeta', power: 8500 },
-  ]);
-  addCharacter() {
-    if(!this.name() || !this.power() || this.power() < 0){
-      return;
-  }
+public dragonballService = inject(DragonballService);//forma moderna de inyectar el servicio
 
-  const newCharacter: Character = {
-    id: this.characters().length + 1,
-    name: this.name(),
-    power: this.power(),
-  };
-  this.characters.update((list)=> [...list, newCharacter]);
-  this.resetFields();
-  }
-
-  // powerClasses= computed(() => {
-  //   return{
-  //     'text-danger': true,
-  //   }
-  // })
-resetFields(){
-  this.name.set('');
-  this.power.set(0);
-  }
 }
 
+
+// constructor(
+//   public dragonballService: DragonballService //forma tradicional de inyectar el servicio
+// ) { }
+
+//con esta interface le digo a angular que esta es una singla que maneja un array de personajes con un señar generico
+  // characters= signal<Character[]>([
+  //   { id: 1, name: 'Goku', power: 9000 },
+  //   { id: 2, name: 'Vegeta', power: 8500 },
+  // ]);
+  // addCharacter(character: Character) {
+  //   this.characters.update((list)=> [...list, character]);
+  // }

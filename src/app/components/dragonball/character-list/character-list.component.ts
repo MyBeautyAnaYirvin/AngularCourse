@@ -1,7 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import type { Character } from '../../../interfaces/character.interface';
 @Component({
   selector: 'dragonball-character-list',
   templateUrl: './character-list.component.html',
 })
-export class CharacterListComponent { }
+export class CharacterListComponent {
+  characters = input.required<Character[]>()//LOS INPUT SIGNALS SON LOS QUE RECIBEN VALORES DEL MUNDO EXTERNO
+  listName = input.required<string>()
+
+}

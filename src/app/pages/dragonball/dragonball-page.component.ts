@@ -1,12 +1,9 @@
 import { Component, computed, signal } from '@angular/core';
-
-interface Character {
-  id: number;
-  name: string;
-  power: number;
-}
+import { CharacterListComponent } from '../../components/dragonball/character-list/character-list.component';
+import type { Character } from '../../interfaces/character.interface';
 @Component({
   templateUrl: './dragonball-page.component.html',
+  imports: [CharacterListComponent],
 })
 
 export class DragonballPageComponent  {
